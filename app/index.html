@@ -1,1 +1,42 @@
 <!DOCTYPE html>
+<html ng-app='todoApp'>
+  <head>
+    <title>Our angular app</title>
+    <script src="components/angular/angular.js"></script>
+    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.css">
+  </head>
+  <body>
+    <div ng-controller="HeaderController">
+      <form role="form">
+        <div class="form-group col-md-10">
+          <input type="text" class="form-control" id="todoItem" ng-model="todoModel">
+        </div>
+        <button class="btn btn-primary col-md-2" ng-click="submitTodo()">Add</button>
+      </form>
+    </div>
+    <div ng-controller="TableController">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Item</th>
+          <th>Done</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="todoItem in todoItems">
+          <td>1</td>
+          <td>{{todoItem.todo}}</td>
+          <td>{{todoItem.done}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </body>
+  <script src="components/angular/angular.js"></script>
+  <script src="main.js"></script>
+  <script src="controllers/header.js"></script>
+  <script src="controllers/table.js"></script>
+  <script src="services/todo.js"></script>
+</html>
